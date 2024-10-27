@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  feishu-chatgpt:
+    container_name: feishu-chatgpt
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000/tcp"
+    # volumes:
+    #   - ./code/config.yaml:/app/config.yaml:ro
+    environment:
+      - APP_ID=cli_a629b85e5272100d
+      - APP_SECRET=0kVtwBxdmth0BnP8gnoyj8G4TASKglZb
+      - APP_ENCRYPT_KEY=zJ5yhwVrathXDRy8GetBvb36YkZ41dvQ
+      - APP_VERIFICATION_TOKEN=u7Qmbrdl1pBSCtnpWkFLlfpr1t46o0rX
+      # 请确保和飞书应用管理平台中的设置一致
+      - BOT_NAME=大王
+      # OpenAI API Key 支持负载均衡, 可以填写多个 Key 用逗号分隔
+      - OPENAI_KEY=sk-FJKM4P4Q90hkJPgA9uuvYf1g3Paael4eOB095RprHe0QjZJI
+      # 服务器配置
+      - HTTP_PORT=9000
+      - HTTPS_PORT=9001
+      - USE_HTTPS=false
+      - CERT_FILE=cert.pem
+      - KEY_FILE=key.pem
+      # OpenAI 地址, 一般不需要修改, 除非你有自己的反向代理
+      - API_URL=https://api.chatanywhere.tech
+      # 代理设置, 例如 - HTTP_PROXY=http://127.0.0.1:7890, 默认代表不使用代理
+      - HTTP_PROXY
