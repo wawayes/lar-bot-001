@@ -2,7 +2,7 @@ module lark-openai
 
 go 1.18
 
-require github.com/larksuite/oapi-sdk-go/v3 v3.0.14
+require github.com/larksuite/oapi-sdk-go/v3 v3.3.5
 
 require (
 	github.com/duke-git/lancet/v2 v2.1.17
